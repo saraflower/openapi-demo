@@ -28,6 +28,49 @@ paths:
       responses:
         '200':
           description: List of Customers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  description: Customer Object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    firstName:
+                      type: string
+                      minLength: 2
+                      maxLength: 100
+                      example: Sara
+                    lastName:
+                      type: string
+                      minLength: 2
+                      maxLength: 100
+                      example: Flower
+                    address:
+                      type: object
+                      description: Address Object
+                      properties:
+                        line1:
+                          type: string
+                          example: Street 123-5
+                        city:
+                          type: string
+                          example: Valencia
+                        zipCode:
+                          type: string
+                          example: 55555
+                        province:
+                          type: string
+                          enum: [VAL, BCN, MAD]
+                        community:
+                          type: string
+                          enum:
+                            - Comunitat Valenciana
+                            - Barcelona
+                            - Madrid
 
   /v1/beers:
     get:
