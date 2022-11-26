@@ -21,5 +21,18 @@ servers:
 - url: https://prod.example.com
   description: Prod Example server
 
+
 paths:
-  {}
+  /v1/customers:
+    get:
+      responses:
+        '200':
+          description: List of Customers
+
+  /v1/beers:
+    get:
+      responses:
+        '200':
+          description: List of Beers
+        '404':
+          description: Not found
