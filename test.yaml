@@ -1,0 +1,25 @@
+openapi: 3.0.3
+
+
+info:
+  title: 'Test'
+  description: This is a sample description
+  termsOfService: https://example.com
+  version: '1.0'
+  license:
+    name: Fictional license
+    url: https://example.com
+  contact:
+    email: fakeemail@provider.com
+    name: saraflower
+    url: https://example.com
+
+
+servers:
+- url: https://qa.example.com
+  description: QA Example server
+- url: https://prod.example.com
+  description: Prod Example server
+
+paths:
+  {}
