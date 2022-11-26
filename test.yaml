@@ -72,10 +72,34 @@ paths:
                             - Barcelona
                             - Madrid
 
-  /v1/beers:
+  /v1/drinks:
     get:
       responses:
         '200':
-          description: List of Beers
+          description: List of Drinks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  description: Drink Object
+                  properties:
+                    name:
+                      type: string
+                      example: Best drink
+                    style:
+                      type: string
+                      enum:
+                        - HOT
+                        - COLD
+                    price:
+                      type: number
+                      format: float
+                      example: 5.50
+                    stock:
+                      type: integer
+                      format: int32
+                      example: 123
         '404':
           description: Not found
