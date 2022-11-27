@@ -1,0 +1,25 @@
+type: object
+properties:
+  pageable:
+    $ref: PagedResponsePageable.yaml
+  totalPages:
+    type: integer
+    format: int32
+  last:
+    type: boolean
+  totalElements:
+    type: integer
+    format: int32
+  size:
+    type: integer
+    format: int32
+  number:
+    type: integer
+    format: int32
+  numberOfElements:
+    type: integer
+    format: int32
+  sort:
+    $ref: PagedResponseSort.yaml
+  first:
+    type: boolean

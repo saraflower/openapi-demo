@@ -1,0 +1,17 @@
+type: object
+properties:
+  sort:
+    $ref: PagedResponseSort.yaml
+  offset:
+    type: integer
+    format: int32
+  pageNumber:
+    type: integer
+    format: int32
+  pageSize:
+    type: integer
+    format: int32
+  paged:
+    type: boolean
+  unpaged:
+    type: boolean
