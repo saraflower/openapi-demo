@@ -1,0 +1,19 @@
+type: object
+description: Drink Object
+properties:
+  name:
+    type: string
+    example: Best drink
+  style:
+    type: string
+    enum:
+      - HOT
+      - COLD
+  price:
+    type: number
+    format: float
+    example: 5.50
+  stock:
+    type: integer
+    format: int32
+    example: 123

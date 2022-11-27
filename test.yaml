@@ -31,46 +31,8 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  description: Customer Object
-                  properties:
-                    id:
-                      type: string
-                      format: uuid
-                    firstName:
-                      type: string
-                      minLength: 2
-                      maxLength: 100
-                      example: Sara
-                    lastName:
-                      type: string
-                      minLength: 2
-                      maxLength: 100
-                      example: Flower
-                    address:
-                      type: object
-                      description: Address Object
-                      properties:
-                        line1:
-                          type: string
-                          example: Street 123-5
-                        city:
-                          type: string
-                          example: Valencia
-                        zipCode:
-                          type: string
-                          example: 55555
-                        province:
-                          type: string
-                          enum: [VAL, BCN, MAD]
-                        community:
-                          type: string
-                          enum:
-                            - Comunitat Valenciana
-                            - Barcelona
-                            - Madrid
+                $ref: "#/components/schemas/CustomerList"
+
 
   /v1/drinks:
     get:
@@ -80,26 +42,66 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  description: Drink Object
-                  properties:
-                    name:
-                      type: string
-                      example: Best drink
-                    style:
-                      type: string
-                      enum:
-                        - HOT
-                        - COLD
-                    price:
-                      type: number
-                      format: float
-                      example: 5.50
-                    stock:
-                      type: integer
-                      format: int32
-                      example: 123
+                $ref: DrinkList.yaml
         '404':
           description: Not found
+
+
+components:
+  schemas:
+    Address:
+      type: object
+      description: Address Object
+      properties:
+        line1:
+          type: string
+          example: Street 123-5
+        city:
+          type: string
+          example: Valencia
+        zipCode:
+          type: string
+          example: 55555
+        province:
+          type: string
+          enum: [VAL, BCN, MAD]
+        community:
+          type: string
+          enum:
+            - Comunitat Valenciana
+            - Barcelona
+            - Madrid
+
+    User:
+      type: object
+      description: base user
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+
+    Customer:
+      type: object
+      description: Customer Object
+      allOf:
+        - $ref: '#/components/schemas/User'
+      properties:
+        firstName:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: Sara
+        lastName:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: Flower
+        address:
+          $ref: "#/components/schemas/Address"
+
+    CustomerList:
+      type: array
+      items:
+        $ref: "#/components/schemas/Customer"
