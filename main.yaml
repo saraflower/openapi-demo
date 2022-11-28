@@ -27,6 +27,7 @@ paths:
     get:
       summary: List Customers
       description: Get all customers paged
+      operationId: V1ListCustomers
       tags:
         - Customers
       parameters:
@@ -46,6 +47,7 @@ paths:
       description: Get customer by id
       tags:
         - Customers
+      operationId: V1CustomerById
       parameters:
         - name: customerId
           in: path
@@ -68,6 +70,7 @@ paths:
       description: Get all drinks paged
       tags:
         - Drinks
+      operationId: V1ListDrinks
       parameters:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
@@ -87,6 +90,7 @@ paths:
       description: Get drink by id
       tags:
         - Drinks
+      operationId: V1DrinkById
       parameters:
         - name: drinkId
           in: path
