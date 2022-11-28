@@ -25,6 +25,8 @@ servers:
 paths:
   /v1/customers:
     get:
+      summary: List Customers
+      description: Get all customers paged
       parameters:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
@@ -38,6 +40,8 @@ paths:
 
   /v1/customers/{customerId}:
     get:
+      summary: Single customer
+      description: Get customer by id
       parameters:
         - name: customerId
           in: path
@@ -56,6 +60,8 @@ paths:
 
   /v1/drinks:
     get:
+      summary: List drinks
+      description: Get all drinks paged
       parameters:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
@@ -71,6 +77,8 @@ paths:
 
   /v1/drinks/{drinkId}:
     get:
+      summary: List drinks
+      description: Get drink by id
       parameters:
         - name: drinkId
           in: path
