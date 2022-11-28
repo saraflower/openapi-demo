@@ -25,6 +25,9 @@ servers:
 paths:
   /v1/customers:
     get:
+      parameters:
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageNumber'
       responses:
         '200':
           description: List of Customers
@@ -36,6 +39,9 @@ paths:
 
   /v1/drinks:
     get:
+      parameters:
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageNumber'
       responses:
         '200':
           description: List of Drinks
@@ -48,6 +54,23 @@ paths:
 
 
 components:
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 25
+    pageNumber:
+      name: pageNumber
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 1
   schemas:
     Address:
       type: object
