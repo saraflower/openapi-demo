@@ -71,13 +71,7 @@ paths:
         - Customers
       operationId: V1CustomerById
       parameters:
-        - name: customerId
-          in: path
-          description: Customer Id
-          required: true
-          schema:
-            type: string
-            format: uuid
+        - $ref: '#/components/parameters/customerId'
       responses:
         '200':
           description: Found
@@ -85,6 +79,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
+    put:
+      summary: Update Customer
+      description: Update customer by id
+      tags:
+        - Customers
+      parameters:
+        - $ref: '#/components/parameters/customerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '204':
+          description: Customer updated
 
   /v1/drinks:
     get:
@@ -135,13 +145,7 @@ paths:
         - Drinks
       operationId: V1DrinkById
       parameters:
-        - name: drinkId
-          in: path
-          description: Drink Id
-          required: true
-          schema:
-            type: string
-            format: uuid
+        - $ref: '#/components/parameters/drinkId'
       responses:
         '200':
           description: Found
@@ -149,7 +153,22 @@ paths:
             application/json:
               schema:
                 $ref: Drink
-
+    put:
+      summary: Update Drink
+      description: Update drink by id
+      tags:
+        - Drinks
+      parameters:
+        - $ref: '#/components/parameters/drinkId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: Drink
+      responses:
+        '204':
+          description: Customer updated  
 
 components:
   parameters:
@@ -169,6 +188,22 @@ components:
         type: integer
         format: int32
         default: 1
+    customerId:
+      name: customerId
+      in: path
+      description: Customer Id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    drinkId:
+      name: drinkId
+      in: path
+      description: Drink Id
+      required: true
+      schema:
+        type: string
+        format: uuid
   schemas:
     Address:
       type: object
