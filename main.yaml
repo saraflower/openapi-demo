@@ -105,10 +105,31 @@ paths:
                 $ref: "#/components/schemas/DrinkPagedList"
         '404':
           description: Not found
+    post:
+      summary: New Drink
+      description: Create a new Drink
+      tags:
+        - Drinks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: Drink
+      responses:
+        '201':
+          description: Drink Created
+          headers:
+            location:
+              description: Location of the created drink
+              schema:
+                type: string
+                format: uri
+                example: http://example.com/v1/drinks/{assignedIdValue}
 
   /v1/drinks/{drinkId}:
     get:
-      summary: List drinks
+      summary: Single Drink
       description: Get drink by id
       tags:
         - Drinks

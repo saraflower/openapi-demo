@@ -1,6 +1,10 @@
 type: object
 description: Drink Object
 properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
   name:
     type: string
     example: Best drink
