@@ -129,6 +129,7 @@ paths:
       tags:
         - Drinks
       operationId: V1ListDrinks
+      security: []
       parameters:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
