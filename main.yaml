@@ -45,6 +45,7 @@ paths:
       description: Create a new customer
       tags:
         - Customers
+      operationId: V1CreateCustomer
       requestBody:
         required: true
         content:
@@ -84,6 +85,7 @@ paths:
       description: Update customer by id
       tags:
         - Customers
+      operationId: V1UpdateCustomer
       parameters:
         - $ref: '#/components/parameters/customerId'
       requestBody:
@@ -95,6 +97,17 @@ paths:
       responses:
         '204':
           description: Customer updated
+    delete:
+      summary: Delete Customer
+      description: Delete customer by id
+      tags:
+        - Customers
+      operationId: V1DeleteCustomer
+      parameters:
+        - $ref: '#/components/parameters/customerId'
+      responses:
+        '200':
+          description: Customer deleted
 
   /v1/drinks:
     get:
@@ -120,6 +133,7 @@ paths:
       description: Create a new Drink
       tags:
         - Drinks
+      operationId: V1CreateDrink
       requestBody:
         required: true
         content:
@@ -158,6 +172,7 @@ paths:
       description: Update drink by id
       tags:
         - Drinks
+      operationId: V1UpdateDrink
       parameters:
         - $ref: '#/components/parameters/drinkId'
       requestBody:
@@ -169,6 +184,17 @@ paths:
       responses:
         '204':
           description: Customer updated  
+    delete:
+      summary: Delete Drink
+      description: Delete drink by id
+      tags:
+        - Drinks
+      operationId: V1DeleteDrink
+      parameters:
+        - $ref: '#/components/parameters/drinkId'
+      responses:
+        '200':
+          description: Drink deleted
 
 components:
   parameters:
