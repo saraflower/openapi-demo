@@ -62,7 +62,10 @@ paths:
                 type: string
                 format: uri
                 example: http://example.com/v1/customers/{assignedIdValue}
-        
+        '400':
+          description: Bad Request
+        '409':
+          description: Conflict
 
   /v1/customers/{customerId}:
     get:
@@ -80,6 +83,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
+        '404':
+          description: Not found
     put:
       summary: Update Customer
       description: Update customer by id
@@ -97,6 +102,12 @@ paths:
       responses:
         '204':
           description: Customer updated
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
     delete:
       summary: Delete Customer
       description: Delete customer by id
@@ -108,6 +119,8 @@ paths:
       responses:
         '200':
           description: Customer deleted
+        '404':
+          description: Not found
 
   /v1/drinks:
     get:
@@ -126,8 +139,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DrinkPagedList"
-        '404':
-          description: Not found
     post:
       summary: New Drink
       description: Create a new Drink
@@ -150,6 +161,10 @@ paths:
                 type: string
                 format: uri
                 example: http://example.com/v1/drinks/{assignedIdValue}
+        '400':
+          description: Bad request
+        '409':
+          description: Conflict
 
   /v1/drinks/{drinkId}:
     get:
@@ -167,6 +182,8 @@ paths:
             application/json:
               schema:
                 $ref: Drink
+        '404':
+          description: Not found
     put:
       summary: Update Drink
       description: Update drink by id
@@ -184,6 +201,12 @@ paths:
       responses:
         '204':
           description: Customer updated  
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
     delete:
       summary: Delete Drink
       description: Delete drink by id
@@ -195,6 +218,8 @@ paths:
       responses:
         '200':
           description: Drink deleted
+        '404':
+          description: Not found
 
 components:
   parameters:
