@@ -224,6 +224,7 @@ paths:
 
 security:
   - BasicAuth: []
+  - JwtAuthToken: []
 
 
 components:
@@ -231,6 +232,9 @@ components:
     BasicAuth:
       type: http
       scheme: basic
+    JwtAuthToken:
+      type: http
+      scheme: bearer
   parameters:
     pageSize:
       name: pageSize
