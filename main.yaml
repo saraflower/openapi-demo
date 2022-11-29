@@ -221,7 +221,16 @@ paths:
         '404':
           description: Not found
 
+
+security:
+  - BasicAuth: []
+
+
 components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
   parameters:
     pageSize:
       name: pageSize
